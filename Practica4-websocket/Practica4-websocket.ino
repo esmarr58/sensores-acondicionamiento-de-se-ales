@@ -54,6 +54,7 @@ void blinkTask(void *param) {
         doc["type"] = "adc_reading";
         doc["temperatura"] = temperatura;
         doc["resistencia"] = resistencia;
+        doc["voltaje"] = voltajePromedio;
 
         // Serializar el JSON y enviarlo
         String jsonString;
