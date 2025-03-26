@@ -12,8 +12,8 @@
 #define ADC_RESOLUTION 4095  // Resolución del ADC de 12 bits (0-4095)
 #define ADC_VREF 3.3  // Voltaje de referencia del ADC
 #define MEASUREMENT_TIME 1000  // Tiempo de medición en milisegundos (1 segundo)
-const char* ssid = "GWN571D04";
-const char* password = "ESP32CUCEI$$";
+const char* ssid = "accesoDenegado";
+const char* password = "hola1234";
 
 const float R0 = 100.0;  // Resistencia a 0°C
 const float alpha = 0.00385;  // Coeficiente de temperatura del platino
@@ -29,6 +29,7 @@ AsyncWebServer server(80);
 AsyncWebSocket ws("/ws");
 
 void blinkTask(void *param) {
+    while(1){
     unsigned long startTime = millis();  // Capturar tiempo de inicio
     unsigned int sampleCount = 0;  // Contador de muestras
     float voltageSum = 0.0;  // Suma de voltajes
@@ -57,7 +58,6 @@ void blinkTask(void *param) {
         // Serializar el JSON y enviarlo
         String jsonString;
         serializeJson(doc, jsonString);
-        client->text(jsonString);
 
     // Imprimir los resultados
     Serial.print("Muestras: ");
@@ -70,6 +70,17 @@ void blinkTask(void *param) {
     Serial.print(" Temperatura: ");
     Serial.print(temperatura, 2);  // Mostrar con 2 decimales
     Serial.println(" °C");
+            ws.cleanupClients();
+
+
+            for (AsyncWebSocketClient *client : ws.getClients()) {
+                if (client->status() == WS_CONNECTED) {
+                    client->text(jsonString);
+                }
+            }
+
+
+    }
   
 }
 
