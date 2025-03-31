@@ -12,9 +12,8 @@
 #define ADC_RESOLUTION 4095  // Resolución del ADC de 12 bits (0-4095)
 #define ADC_VREF 3.3  // Voltaje de referencia del ADC
 #define MEASUREMENT_TIME 1000  // Tiempo de medición en milisegundos (1 segundo)
-const char* ssid = "accesoDenegado";
-const char* password = "hola1234";
-
+const char* ssqid = "GWN571D04";
+const char* password = "ESP32CUCEI$$";
 const float R0 = 100.0;  // Resistencia a 0°C
 const float alpha = 0.00385;  // Coeficiente de temperatura del platino
 bool heartbeatReceived = false;  // Indica si ya se ha recibido el primer heartbeat
