@@ -40,6 +40,8 @@ void blinkTask(void *param) {
         
         voltageSum += voltage;  // Acumular voltaje
         sampleCount++;  // Contar muestras
+        vTaskDelay(1);  // Libera el CPU durante 1 ms en cada iteración
+
     }
 
     // Calcular el voltaje promedio
