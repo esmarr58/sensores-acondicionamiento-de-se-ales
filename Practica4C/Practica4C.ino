@@ -224,7 +224,8 @@ void onWebSocketMessage(AsyncWebSocket *server, AsyncWebSocketClient *client, Aw
                 }
                 else if (strcmp(tipo, "activar_horno") == 0) {
                     activarHorno = true;
-                    client->text("{\"type\":\"estado\",\"mensaje\":\"Horno activado\"}");
+                    //client->text("{\"type\":\"estado\",\"mensaje\":\"Horno activado\"}");
+                    Serial.print("Horno activado");
 
                   
                 }
