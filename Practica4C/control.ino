@@ -1,6 +1,6 @@
 // control_horno_pid.ino
 
-#include <PID_v1.h>
+#include <PID_v1.h> //Brett Beauregard 1.2.0
 
 // --- Definiciones de pines y constantes ---
 #define SSR_PIN 13
